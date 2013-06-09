@@ -1,8 +1,8 @@
-=========================================
-chssh -- Interactive ssh and scp for chef
-=========================================
+=================================================
+chssh -- Interactive ssh and scp for chef server
+=================================================
 
-Inspired by ec2-ssh from instagram; this uses the pychef library to allow you to address your hosts by their chef node name instead of needing to know their dns names. This exists explicitly because dns names in the cloud are so exceedingly painful to work with.
+Inspired by ec2-ssh from instagram, this uses the pychef library to allow you to address your hosts by their chef node name instead of the dns name.
 
 This differs from `knife ssh` because these tools operate with interactive shells, and are meant for working with 1 node at a time.
 
