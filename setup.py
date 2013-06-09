@@ -10,7 +10,7 @@ setup(
     author = 'Kris Wehner',
     author_email = 'kris@further.com',
     description = 'ssh wrappers to transparently use chef node names instead of hostnames',
-    long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
+    long_description = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     license = 'BSD',
     keywords = '',
     url = 'http://github.com/kriswehner/chssh',
