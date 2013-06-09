@@ -15,8 +15,11 @@ Usage
 -----
 
         ``chssh node1``   # ssh to chef node node1
+
         ``chssh user@node1``  # ssh as user to chef node node1
+
         ``chscp file user@node1:path`` # scp file to chef node node1
+
         ``chscp user@node1:path`` . # scp file from chef node node1
 
 Enjoy!
