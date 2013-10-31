@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"user_at_host"
+			],
+			[
+				"scp",
+				"scp_command"
+			],
+			[
+				"Chef",
+				"ChefCommand"
+			],
+			[
+				"ssh",
+				"ssh_command"
+			],
+			[
+				"fq",
+				"fqdn_for_node"
+			],
+			[
+				"exe",
+				"exec_args"
+			],
+			[
+				"su",
+				"substitude_fdqn"
+			],
+			[
+				"fi",
+				"find_arg_idx"
+			],
+			[
+				"host",
+				"hostname_arg_idx"
+			],
+			[
 				"res",
 				"request"
 			],
@@ -223,6 +259,16 @@
 	},
 	"file_history":
 	[
+		"/Users/kris/src/chssh/setup.py",
+		"/Users/kris/src/chssh/README.rst",
+		"/Users/kris/src/chssh/chssh/cmd.py",
+		"/Users/kris/paubins.txt",
+		"/var/folders/zn/53_71dsn7232mqnlmfch_wwc0000gn/T/knife-edit-401543810076830327582.js",
+		"/var/folders/zn/53_71dsn7232mqnlmfch_wwc0000gn/T/knife-edit-452256865665825334821.js",
+		"/Users/kris/src/chssh/.git/COMMIT_EDITMSG",
+		"/Users/kris/.pypirc",
+		"/Users/kris/src/chssh/README.md",
+		"/Users/kris/src/chssh/.gitignore",
 		"/Users/kris/src/chessh/setup.py",
 		"/Users/kris/src/www.new/.git/COMMIT_EDITMSG",
 		"/Users/kris/src/www.new/seatme/templates/sane/mgmt/internal/payments.html",
@@ -340,17 +386,7 @@
 		"/Users/kris/src/cookbooks/cookbooks/application_python/providers/django_buildout.rb",
 		"/Users/kris/src/cookbooks/cookbooks/application/resources/default.rb",
 		"/Users/kris/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/README.md",
-		"/Users/kris/src/cookbooks/cookbooks/seatme_app/metadata.rb",
-		"/var/folders/zn/53_71dsn7232mqnlmfch_wwc0000gn/T/knife-edit-122357455277806235463.js",
-		"/var/folders/zn/53_71dsn7232mqnlmfch_wwc0000gn/T/knife-edit-544810785265663751243.js",
-		"/var/folders/zn/53_71dsn7232mqnlmfch_wwc0000gn/T/knife-edit-301572379607054.js",
-		"/private/tmp/t.txt",
-		"/Users/kris/src/cookbooks/cookbooks/splunk/files/default/root-ssh-config",
-		"/Users/kris/src/cookbooks/cookbooks/seatme_app/recipes/default.rb",
-		"/Users/kris/src/cookbooks/cookbooks/application/providers/default.rb",
-		"/Users/kris/src/cookbooks/cookbooks/application/metadata.rb",
-		"/var/folders/zn/53_71dsn7232mqnlmfch_wwc0000gn/T/knife-edit-107637020726588385465.js",
-		"/Users/kris/src/cookbooks/cookbooks/application/recipes/default.rb"
+		"/Users/kris/src/cookbooks/cookbooks/seatme_app/metadata.rb"
 	],
 	"find":
 	{
@@ -398,6 +434,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"rUK85CZFHwVxC8WtQ4jJUY5IHgWXhMlLkY",
 			"public_",
 			"update(",
 			"class SyncModel",
@@ -524,8 +561,7 @@
 			"/blog",
 			"try_files",
 			"location @php",
-			"index",
-			"blog"
+			"index"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -556,7 +592,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 38.0
 	},
 	"layout":
 	{
@@ -600,6 +636,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"rea",
+				"README.md"
+			],
 			[
 				"fab",
 				"fabfile.py"
@@ -1107,10 +1147,6 @@
 			[
 				"nginx-config",
 				"cookbooks/seatme_app/templates/default/nginx-config.erb"
-			],
-			[
-				"application/default",
-				"cookbooks/application/recipes/default.rb"
 			]
 		],
 		"width": 0.0
@@ -1137,7 +1173,7 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 230.0,
 	"status_bar_visible": true,
 	"template_settings":

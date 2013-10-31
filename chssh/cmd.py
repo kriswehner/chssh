@@ -12,7 +12,10 @@ class ChefCommand:
             try:
                 self.fqdn = n.attributes['ec2']['public_hostname']
             except KeyError:
-                self.fqdn = n['fqdn']
+                if 'fqdn' in n:
+                    self.fqdn = n['fqdn']
+                else:
+                    return None
         else:
             return None
 
@@ -37,8 +40,9 @@ class ChefCommand:
 
         args.extend(self.extra_args())
 
-        print "Connecting to %s" % (self.fqdn)
-        os.execvp(args[0],args)
+        if getattr(self,'fqdn',None):
+            print "Connecting to %s" % (self.fqdn)
+        os.system(" ".join("'" + a + "'" for a in args))
 
     def is_node_arg(self,arg):
         return False
@@ -59,7 +63,7 @@ class ChefCommand:
 
 class SshChefCommand(ChefCommand):
     # Borrowed with homage from ec2-ssh
-    SSH_CMD='echo ". ~/.bashrc && PS1=\'\[\033[01;32m\]%s\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \'" > ~/.ec2sshrc; /bin/bash --rcfile .ec2sshrc -i'
+    SSH_CMD='echo ". .bashrc && PS1=\\"%s:\\\\w$ \\"" > ~/.chsshrc ; /bin/bash --rcfile ~/.chsshrc -i'
 
     def find_arg_idx(self):
         return len(sys.argv) - 1
@@ -71,12 +75,15 @@ class SshChefCommand(ChefCommand):
         return ['ssh','-t']
 
     def substitute_fdqn(self,arg):
-        m = re.match("(.*)@(.*)",arg)
-        if m:
-            username = m.group(1)
-            node = m.group(2)
-            return "%s@%s" % (username,self.fqdn_for_node(node))
-        return self.fqdn_for_node(arg)
+        try:
+            m = re.match("(.*)@(.*)",arg)
+            if m:
+                username = m.group(1)
+                node = m.group(2)
+                return "%s@%s" % (username,self.fqdn_for_node(node))
+            return self.fqdn_for_node(arg)
+        except KeyError:
+            return arg
 
 
 class ScpChefCommand(ChefCommand):
@@ -87,13 +94,16 @@ class ScpChefCommand(ChefCommand):
         return ["scp"]
 
     def substitute_fdqn(self,arg):
-        (user_at_host,path) = arg.split(":")
-        m = re.match("(.*)@(.*)",user_at_host)
-        if m:
-            username = m.group(1)
-            node = m.group(2)
-            return "%s@%s:%s" % (username,self.fqdn_for_node(node),path)
-        return "%s:%s" % (self.fqdn_for_node(user_at_host),path)
+        try:
+            (user_at_host,path) = arg.split(":")
+            m = re.match("(.*)@(.*)",user_at_host)
+            if m:
+                username = m.group(1)
+                node = m.group(2)
+                return "%s@%s:%s" % (username,self.fqdn_for_node(node),path)
+            return "%s:%s" % (self.fqdn_for_node(node),path)            
+        except KeyError:
+            return arg
 
 
 def scp():
