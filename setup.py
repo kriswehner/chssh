@@ -3,7 +3,7 @@ import os
 
 setup(
     name = "chssh",
-    version = "0.3",
+    version = "0.3.1",
     packages = find_packages(),
     install_requires = ['pychef>=0.2'],
 

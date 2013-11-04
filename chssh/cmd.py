@@ -101,7 +101,7 @@ class ScpChefCommand(ChefCommand):
                 username = m.group(1)
                 node = m.group(2)
                 return "%s@%s:%s" % (username,self.fqdn_for_node(node),path)
-            return "%s:%s" % (self.fqdn_for_node(node),path)            
+            return "%s:%s" % (self.fqdn_for_node(user_at_host),path)            
         except KeyError:
             return arg
 
