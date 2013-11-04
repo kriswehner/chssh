@@ -2,6 +2,7 @@ import sys
 import os
 from chef import autoconfigure, Node
 import re
+from urllib2 import HTTPError
 
 class ChefCommand:
     def fqdn_for_node(self,node):
@@ -39,7 +40,8 @@ class ChefCommand:
             else:
                 args.append(updated_arg)
 
-        args.extend(self.extra_args())
+        if len(sys.argv) > 1:
+            args.extend(self.extra_args())
 
         if getattr(self,'fqdn',None):
             print "Connecting to %s" % (self.fqdn)
@@ -84,6 +86,8 @@ class SshChefCommand(ChefCommand):
                 return "%s@%s" % (username,self.fqdn_for_node(node))
             return self.fqdn_for_node(arg)
         except KeyError:
+            return arg
+        except HTTPError:
             return arg
 
 
