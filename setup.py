@@ -3,7 +3,7 @@ import os
 
 setup(
     name = "chssh",
-    version = "0.3.1",
+    version = "0.4",
     packages = find_packages(),
     install_requires = ['pychef>=0.2'],
 
@@ -30,8 +30,9 @@ setup(
 
     entry_points = {
         'console_scripts': [
-            'chssh = chssh.cmd:ssh',
-            'chscp = chssh.cmd:scp',
+            'chssh   = chssh.cmd:ssh',
+            'chscp   = chssh.cmd:scp',
+            'chrsync = chssh.cmd:rsync',
         ]
     }
 )

@@ -30,7 +30,8 @@ class ChefCommand:
 
     def run(self):
         idx = self.find_arg_idx()
-        updated_arg = self.substitute_fdqn(sys.argv[idx])
+        if idx >= 0:
+            updated_arg = self.substitute_fdqn(sys.argv[idx])
         args = self.exec_args()
         for i in range(1,len(sys.argv)):
             if i != idx:
@@ -105,6 +106,10 @@ class ScpChefCommand(ChefCommand):
         except KeyError:
             return arg
 
+class RsyncChefCommand(ScpChefCommand):
+    def exec_args(self):
+        return ["rsync"]
+
 
 def scp():
     scp_command = ScpChefCommand()
@@ -113,6 +118,11 @@ def scp():
 def ssh():
     ssh_command = SshChefCommand()
     ssh_command.run()
+
+def rsync():
+    rsync_command = RsyncChefCommand()
+    rsync_command.run()
+
 
 if __name__ == "__main__":
     ssh()
