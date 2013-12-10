@@ -13,10 +13,13 @@ class ChefCommand:
             try:
                 self.fqdn = n.attributes['ec2']['public_hostname']
             except KeyError:
-                if 'fqdn' in n:
-                    self.fqdn = n['fqdn']
-                else:
-                    return None
+                try:
+                    self.fqdn = n.attributes['ec2']['local_ipv4']
+                except KeyError:
+                    if 'fqdn' in n:
+                        self.fqdn = n['fqdn']
+                    else:
+                        return None
         else:
             return None
 

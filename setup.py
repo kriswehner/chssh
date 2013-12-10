@@ -4,7 +4,7 @@ import os
 setup(
     name = "chssh",
     packages = find_packages(),
-    version = "0.4.1",
+    version = "0.4.2",
     install_requires = ['pychef>=0.2'],
 
     author = 'Kris Wehner',
